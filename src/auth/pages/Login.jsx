@@ -1,12 +1,12 @@
-import * as React from 'react';
+import { useEffect } from 'react';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import {Typography, Grid, Box, Paper, Link, TextField, CssBaseline, Button, Avatar} from '@mui/material/';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Swal from 'sweetalert2';
-import { Copyright } from './Copyright';
 import { useForm } from '../../hooks/useForm';
+import { Copyright } from './Copyright';
 import { useAuthStore } from '../../hooks/useAuthStore';
-import { useEffect } from 'react';
+import { useUsuarioStore } from '../../hooks/useUsuariosStore';
 
 const formData = {
     email:'',
@@ -18,14 +18,13 @@ const defaultTheme = createTheme();
 
 export const Login= ()=> {
     const { errorMessage, startLogin } = useAuthStore();
-    const {email, password, onInputChange: onLoginInputChange} = useForm(formData);
-    
-    
-
+    const {listarUsuarios} = useUsuarioStore();
+    const {email, password, onInputChange: onLoginInputChange} = useForm(formData);  
 
     const onLoginSubmit = (event) => {
       event.preventDefault();
       startLogin({email, password});
+      listarUsuarios();
     }
     
     useEffect(() => {

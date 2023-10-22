@@ -1,6 +1,8 @@
 import {useDispatch, useSelector} from 'react-redux'
 import {  nodeApi } from '../api';
 import { clearErrorMessage, onChecking, onFailure, onLogin, onLogout, onSuccess } from '../store';
+import ListarUsuarios from '../pages/usuario/ListarUsuarios';
+
 
 export const useAuthStore = () => {
     const { status, user, errorMessage,} = useSelector(state => state.auth);
@@ -9,8 +11,8 @@ export const useAuthStore = () => {
     const tokenHandler = (data) => {
         localStorage.setItem('token',data.token);
         localStorage.setItem('token-init-date',new Date().getTime());  
-        const {nombre, apellido, id} = data.usuario;
-        dispatch( onLogin( {name: `${nombre} ${apellido}`.toUpperCase(), uid: id}) )
+        const {nombre, apellido, id, ...rest} = data.usuario;
+        dispatch( onLogin( {name: `${nombre} ${apellido}`.toUpperCase(), uid: id, ...rest}) )
     }
 
     const startLogin = async({ email, password }) => {
@@ -49,7 +51,6 @@ export const useAuthStore = () => {
 
         try {
             const {data} = await nodeApi.get('/auth/renovar');
-            
             tokenHandler(data);
 
         } catch (error) {

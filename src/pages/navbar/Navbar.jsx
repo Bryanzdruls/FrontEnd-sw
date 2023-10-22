@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { onLogout as onLogoutServidor } from "../../../store/auth"
+import { onLogout as onLogoutServidor } from "../../store/auth"
 import { LogoutOutlined, MenuOutlined } from "@mui/icons-material"
 import { AppBar, Grid, IconButton, Toolbar, Typography } from "@mui/material"
 

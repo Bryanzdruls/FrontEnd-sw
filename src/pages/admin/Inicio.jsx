@@ -1,13 +1,22 @@
 import React from 'react'
 import CrearUsuario from './CrearUsuario'
-import NavBar from './navbar/Navbar'
-import { AdminLayout } from './layout/AdminLayout'
+
+import { Layout } from '../layout/Layout'
+
+import ListarUsuarios from '../usuario/ListarUsuarios'
+import { useSelector } from 'react-redux'
+
 const Inicio = () => {
+  const {user} =useSelector(state => state.auth);
+  
   return (
-    <AdminLayout>
-      <NavBar/>
-      <CrearUsuario/>
-    </AdminLayout>
+    <Layout>
+      {
+        user.CargoId === 1 
+        ? <CrearUsuario/> 
+        : <ListarUsuarios/>
+      }
+    </Layout>
   )
 }
 
