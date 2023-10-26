@@ -1,53 +1,87 @@
-/***  
 
-.card,
-body {
-    margin: 1vh;
+.UserCard{
     display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 1vh;
+    justify-content: center;
+}
+
+.star{
+    cursor: pointer;
+    /* background-color: orange; */
+    width: 10px;
+}
+.star:hover{
+transform: rotate(90deg);
+transition: 1s;
+}
+
+.Stars{
+    display: flex;
+    justify-content: center;
+}
+
+p{
+    margin-left: 1vh;
+    margin-right: 1vh;
 }
 
 .card-link,
 body {
     font-size: 1rem;
-}
+} 
 
 .card-link {
     letter-spacing: 0.0178571em;
     font-weight: 500;
-}
+} 
 
-body {
+/* body {
+    display: grid;
     flex-direction: column;
     min-height: 100vh;
-    margin: 0;
+    margin: 3vh;
     font-family: Roboto, sans-serif;
     line-height: 1.5;
     color: #212529;
     background-color: #ced4da;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
-}
+} */
 
-body .footer {
-    margin-top: auto;
-}
+/* body .footer {
+    margin-top: auto; */
+/* } */
 
 .card {
-    position: relative;
+    /* position: relative; */
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #fff;
+    background-color: #91C4F8;
     background-clip: border-box;
     border: 1px solid #00000020;
     border-radius: 0.8rem;
-}
-.card > hr {
-    margin-right: 0;
-    margin-left: 0;
+    width: 50vh;
+    height: 50vh;
+    margin: 2vh;
 }
 
-.card-body {
+ /* .card > hr {
+    margin-right: 0;
+    margin-left: 0;
+}  */
+
+.card-cargo{
+    background-color: white;
+    border-radius: 2vh;
+    padding: 1vh;
+    margin-left: 0.5vh;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+}
+
+ .card-body {
     flex: 1 1 auto;
     min-height: 1px;
     padding: 1rem 1.25rem;
@@ -60,19 +94,24 @@ body .footer {
     font-family: Roboto;
     font-weight: 500;
     font-style: normal;
-}
+} 
 
-.badge-warning2,
+.media-body{
+    display: flex;
+    justify-content: center;
+}
+/* .badge-warning2,
 .text-muted,
 .read-more {
     font-family: Roboto, sans-serif !important;
-}
+} */
 
 
 
 .card-columns .card {
     margin-bottom: 12px !important;
-}
+} 
+
 
 @media (min-width: 420px) {
     .card-columns {
@@ -134,5 +173,5 @@ body .footer {
 
 
 
-***/
+
 
